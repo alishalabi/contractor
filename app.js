@@ -9,8 +9,20 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
+//Let us create a mock array of students
+let students = [
+  { name: "Adam", bio: "Loves to code"},
+  { name: "Billy", bio: "Loves to cook"}
+]
+
+//Express methods
 app.get('/', (req, res) => {
   res.render("home", { msg: "Handlebars are Cool!" });
+})
+
+// Action: Index
+app.get("/students", (req, res) => {
+  res.render("students-index", { students: students});
 })
 
 app.listen(3000, () => {
