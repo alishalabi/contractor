@@ -1,5 +1,9 @@
 <h1>Students</h1>
+
+<a href="/students/new">New Student</a>
+
 {{# each students}}
   <h2>{{this.name}}</h2>
-  <small>{{this.bio}}</small>
+  <small>{{this.bio}}</small><br>
+  <small>{{this.goal}}</small><br>
 {{/each}}

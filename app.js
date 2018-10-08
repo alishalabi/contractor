@@ -13,13 +13,18 @@ mongoose.connect('mongodb://localhost/contractor')
 
 const Student = mongoose.model("Student", {
   name: String,
-  bio: String
+  bio: String,
+  goal: String,
 });
+
+// Installing body-parser and adding to app
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // // Mock array of students (if not connected to DB)
 // let students = [
-//   { name: "Adam", bio: "Loves to code"},
-//   { name: "Billy", bio: "Loves to cook"}
+//   { name: "Yves", bio: "Loves to code"},
+//   { name: "Zena", bio: "Loves to cook"}
 // ]
 
 //Express methods
@@ -35,6 +40,22 @@ app.get("/students", (req, res) => {
     })
     .catch(err => {
       console.log(err);
+    })
+})
+
+// Action: New
+app.get("/students/new", (req, res) => {
+  res.render("students-new", {});
+})
+
+// Action: Create
+app.post("/students", (req, res) => {
+  Student.create(req.body)
+    .then((student) => {
+      console.log(student);
+      res.redirect("/students")
+    }).catch((err) => {
+      console.log(err.message);
     })
 })
 

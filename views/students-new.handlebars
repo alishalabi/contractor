@@ -1,0 +1,33 @@
+<form method="POST" action="/students">
+  <fieldset>
+    <legend>New Student</legend>
+
+    <!-- TITLE -->
+    <p>
+      <label for="name">Name</label><br>
+      <input type="text" name="name" />
+    </p>
+    <p>
+      <label for="bio">Biography</label><br>
+      <input type="text" name="bio"/>
+    </p>
+    <p>
+      <label for="goal">Funding Goal</label><br>
+      <input type="number" name="goal"/>
+    </p>
+    <!-- Unused dropdown menu for housing needs -->
+    <!-- <p>
+      <label for="housing">Housing Requirements</label><br>
+      <select name="housing">
+        <option value=True>Require Housing</option>
+        <option value=False>Does Not Require Housing</option>
+      </select>
+    </p> -->
+  </fieldset>
+
+  <!-- Button -->
+  <p>
+    <button type="submit">Save Student</button>
+  </p>
+
+</form>
