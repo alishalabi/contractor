@@ -53,7 +53,8 @@ app.post("/students", (req, res) => {
   Student.create(req.body)
     .then((student) => {
       console.log(student);
-      res.redirect("/students/${students._id}")
+      console.log(student._id)
+      res.redirect(`/students/${student._id}`)
     }).catch((err) => {
       console.log(err.message);
     })
