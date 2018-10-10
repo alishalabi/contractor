@@ -53,7 +53,17 @@ app.post("/students", (req, res) => {
   Student.create(req.body)
     .then((student) => {
       console.log(student);
-      res.redirect("/students")
+      res.redirect("/students/${students._id}")
+    }).catch((err) => {
+      console.log(err.message);
+    })
+})
+
+// Action: Show
+app.get("/students/:id", (req, res) => {
+  Student.findById(req.params.id)
+    .then((student) => {
+      res.render("students-show", { student: student})
     }).catch((err) => {
       console.log(err.message);
     })
