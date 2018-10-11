@@ -4,4 +4,9 @@
 
 <p><a href="/students/{{student._id}}/edit">Edit Student Profile</a></p>
 
+<!-- Delete button -->
+<p><form method="POST" action="/students/{{student._id}}?_method=DELETE">
+  <button type="submit">Delete Profile</button>
+</form></p>
+
 <a href="/students">Back to All Students</a>

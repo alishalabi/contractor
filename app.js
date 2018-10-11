@@ -91,6 +91,17 @@ app.put("/students/:id", (req, res) => {
     })
 })
 
+// Action: Delete
+app.delete("/students/:id", function (req, res) {
+  console.log("DELETE student profile")
+  Student.findByIdAndRemove(req.params.id)
+    .then((student) => {
+      res.redirect("/students");
+    }).catch((err) => {
+      console.log(err.message);
+    })
+})
+
 app.listen(3000, () => {
   console.log("App listening on port 3000!")
 })
