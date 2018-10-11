@@ -1,5 +1,6 @@
 // Installing express, using const app as instantiation
 const express = require("express")
+const methodOverride = require("method-override")
 const app = express()
 
 // Installing handlebars
@@ -67,6 +68,26 @@ app.get("/students/:id", (req, res) => {
       res.render("students-show", { student: student})
     }).catch((err) => {
       console.log(err.message);
+    })
+})
+
+// Action: Edit
+app.get("/students/:id/edit", (req, res) => {
+  Student.findById(req.params.id, function(err, student) {
+    res.render("students-edit", { student: student});
+  })
+})
+
+app.use(methodOverride("_method"))
+
+// Action: Update
+app.put("/students/:id", (req, res) => {
+  Student.findByIdAndUpdate(req.params.id, req.body)
+    .then(student => {
+      res.redirect(`/students/${student._id}`)
+    })
+    .catch(err =>{
+      console.log(err.message)
     })
 })
 
