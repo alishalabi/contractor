@@ -37,7 +37,7 @@ module.exports = function (app) {
   app.get("/students/:id", (req, res) => {
     Student.findById(req.params.id)
       .then((student) => {
-        Comment.find({ studentId: req.params.id })
+        Payment.find({ studentId: req.params.id })
           .then(payments => {
             res.render("students-show", { student: student, payments: payments })
       }).catch((err) => {
@@ -74,5 +74,7 @@ module.exports = function (app) {
         console.log(err.message);
       })
   })
+
+})
 
 }

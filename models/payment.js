@@ -7,4 +7,4 @@ const Payment = mongoose.model("Payment", {
   reviewId: { type: Schema.Types.ObjectId, ref: "Student"}
 })
 
-module.exports = Payment
+module.exports = Payment;

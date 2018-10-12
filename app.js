@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const express = require("express")
 const methodOverride = require("method-override")
 const Payment = require("./models/payment")
+const Student = require("./models/student")
 const app = express()
 
 
