@@ -11,4 +11,14 @@ module.exports = (app) => {
       })
     })
 
+  app.delete("/students/payments/:id". function(req, res) => {
+    console.log("DELETE payment")
+    Payment.findByIdAndRemove(req.params.id)
+      .then((payment) => {
+        res.redirect(`/students/${payment.reviewId}`)
+      }).catch((err) => {
+        console.log(err.message)
+      })
+  })
+
 }
