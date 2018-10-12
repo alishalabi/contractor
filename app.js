@@ -3,7 +3,9 @@ const bodyParser = require("body-parser");
 // Installing express, using const app as instantiation
 const express = require("express")
 const methodOverride = require("method-override")
+const Payment = require("./models/payment")
 const app = express()
+
 
 app.use(methodOverride("_method"))
 app.use(bodyParser.urlencoded({ extended: true }));

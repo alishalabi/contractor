@@ -1,0 +1,37 @@
+<form action="/students/payments" method="post">
+  <input type="hidden" value="{{student._id}}" name="reviewId">
+  <fieldset>
+    <legend>Sponsor A Student</legend>
+
+    <!-- Donor Name -->
+    <div class="form-group">
+      <label for="donor-name">Your Name</label>
+      <input class="form-control"
+        id="donor-name"
+        type="text"
+        name="name"
+        placeholder="Name"/>
+    </div>
+
+    <!-- Scholarship Amount -->
+    <div class="form-group">
+      <label for="donor-name">Scholarship Amount</label>
+      <input class="form-control" list="scholarship_options"
+        id="payment-amount"
+        name="amount"/>
+        <datalist id="scholarship_options">
+          <option value="10000">
+          <option value="5000">
+          <option value="1000">
+          <option value="500">
+        </datalist>
+      </input>
+    </div>
+
+  </fieldset>
+
+  <!-- Button -->
+  <div class="form-group">
+    <button class="btn btn primary" type="submit">Make Payment</button>
+  </div>
+</form>
