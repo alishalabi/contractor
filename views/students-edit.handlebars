@@ -1,9 +1,13 @@
-<form method="POST" action="/students/{{student._id}}?_method=PUT">
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <form method="POST" action="/students/{{student._id}}?_method=PUT">
 
-  {{> students-form}}
+      {{> students-form}}
 
 
-  <p>
-    <button type="submit">Save Student</button>
-  </p>
-</form>
+      <p>
+        <button type="submit">Save Student</button>
+      </p>
+    </form>
+  </div>
+</div>
