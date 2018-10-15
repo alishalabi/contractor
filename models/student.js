@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Payment = require("./models/payment")
+const Payment = require("./payment")
 
 // Creating our Student model
 const Student = mongoose.model("Student", {

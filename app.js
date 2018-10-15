@@ -21,6 +21,8 @@ const mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost/contractor')
 
 const students = require("./controllers/students")(app)
+const payments = require("./controllers/payments")(app)
+
 
 
 

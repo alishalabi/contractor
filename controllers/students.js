@@ -1,4 +1,5 @@
 const Student = require("../models/student")
+const Payment = require("../models/payment")
 
 module.exports = function (app) {
 
@@ -35,14 +36,15 @@ module.exports = function (app) {
 
   // Action: Show
   app.get("/students/:id", (req, res) => {
-    Student.findById(req.params.id)
-      .then((student) => {
-        Payment.find({ studentId: req.params.id })
-          .then(payments => {
-            res.render("students-show", { student: student, payments: payments })
-      }).catch((err) => {
-        console.log(err.message);
-      })
+    Student.findById(req.params.id).then(student => {
+      Payment.find({ studentId: req.params.id }).then(payments => {
+          res.render("students-show", { student: student, payments: payments })
+        }).catch(err => {
+          console.log(err.message);
+        });
+    }).catch(err => {
+      console.log(err.message);
+    });
   })
 
   // Action: Edit
@@ -73,8 +75,6 @@ module.exports = function (app) {
       }).catch((err) => {
         console.log(err.message);
       })
-  })
-
-})
+   })
 
 }
